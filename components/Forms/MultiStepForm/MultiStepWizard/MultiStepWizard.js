@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Form, FormGroup, Row, Col, Button } from "react-bootstrap";
 import Select from "react-select";
@@ -72,7 +73,7 @@ const MultiStepWizard = ({
                 ? fieldConfig.defaultValue
                 : formData[fieldConfig.label]
             }
-            ref={useRef()}
+            // ref={useRef()}
           />
         );
       default:

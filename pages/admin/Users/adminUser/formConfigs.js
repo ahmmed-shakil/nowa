@@ -9,33 +9,31 @@ const handleDateChange = (event) => {
 const handleImageChange = (event) => {
   const file = event.target.files[0];
 
-  console.log('Selected file:', file);
+  console.log("Selected file:", file);
 };
 
-
 export function getInitialValues(data) {
-if (data) {
+  if (data) {
+    let country = Country.getAllCountries()
+      .filter((country) => country.name === data.country)
+      .map((c) => ({
+        value: c?.isoCode,
+        label: c?.name,
+      }));
 
-  let country = Country.getAllCountries()
-    .filter((country) => country.name === data.country)
-    .map((c) => ({
-      value: c?.isoCode,
-      label: c?.name,
-    }));
+    let state = State.getAllStates()
+      .filter((state) => state.name == data.state)
+      .map((state) => ({
+        value: state?.isoCode,
+        label: state?.name,
+      }));
 
-  let state = State.getAllStates()
-    .filter((state) => state.name == data.state)
-    .map((state) => ({
-      value: state?.isoCode,
-      label: state?.name,
-    }));
-
-  let city = City.getAllCities()
-    .filter((city) => city.name === data.city)
-    .map((city) => ({
-      value: city?.stateCode,
-      label: city?.name,
-    }));
+    let city = City.getAllCities()
+      .filter((city) => city.name === data.city)
+      .map((city) => ({
+        value: city?.stateCode,
+        label: city?.name,
+      }));
 
     let fname = data.firstName;
     let lname = data.lastName;
@@ -52,61 +50,58 @@ if (data) {
     let arType = data.adminRoleName;
     let image = data.userImage;
 
-
-  return {
-    firstName: fname,
-    lastName: lname,
-    emailAddress: mail,
-    username: uname,
-    password: pass,
-    phoneNumber: num,
-    gender: gen,
-    dateOfBirth: DOB,
-    addressLine1: line1,
-    addressLine2: line2,
-    city: city,
-    state: state,
-    country: country,
-    zipcode: zCode,
-    countryCode: cCode,
-    adminRoleName: arType,
-    userImage: image,
-  };
+    return {
+      firstName: fname,
+      lastName: lname,
+      emailAddress: mail,
+      username: uname,
+      password: pass,
+      phoneNumber: num,
+      gender: gen,
+      dateOfBirth: DOB,
+      addressLine1: line1,
+      addressLine2: line2,
+      city: city,
+      state: state,
+      country: country,
+      zipcode: zCode,
+      countryCode: cCode,
+      adminRoleName: arType,
+      userImage: image,
+    };
+  }
 }
-}
-
 
 const CountryOptionsFetcher = () => {
-const countries = Country.getAllCountries().map((country) => ({
-  value: country.isoCode,
-  label: country.name,
-}));
-return countries;
+  const countries = Country.getAllCountries().map((country) => ({
+    value: country.isoCode,
+    label: country.name,
+  }));
+  return countries;
 };
 
 const StateOptionsFetcher = (selectedCountry) => {
-const states = State.getStatesOfCountry(selectedCountry?.value).map(
-  (state) => ({
-    value: state.isoCode,
-    label: state.name,
-  })
-);
+  const states = State.getStatesOfCountry(selectedCountry?.value).map(
+    (state) => ({
+      value: state.isoCode,
+      label: state.name,
+    })
+  );
 
-return states || [];
+  return states || [];
 };
 
 const CityOptionsFetcher = (selectedState) => {
-const cities = City.getAllCities();
-const processedCities = cities
-  .filter((city) => city.stateCode === selectedState?.value)
-  .map((city) => ({
-    value: city.stateCode,
-    label: city.name,
-  }));
+  const cities = City.getAllCities();
+  const processedCities = cities
+    .filter((city) => city.stateCode === selectedState?.value)
+    .map((city) => ({
+      value: city.stateCode,
+      label: city.name,
+    }));
 
-return processedCities || [];
+  return processedCities || [];
 };
-
 
 export function generateAdminFormStepsConfig(initialData) {
   return [
@@ -162,24 +157,24 @@ export function generateAdminFormStepsConfig(initialData) {
           options: [
             { label: "Male", value: "male" },
             { label: "Female", value: "female" },
-            { label: "Other", value: "other" }
+            { label: "Other", value: "other" },
           ],
           defaultValue: initialData?.gender,
-        }, 
-        (
-          <input
-            type="date"
-            value={date}
-            onChange={handleDateChange}
-            placeholder="Select Date of Birth"
-          />
-        ),
+        },
+        // (
+        //   <input
+        //     type="date"
+        //     value={date}
+        //     onChange={handleDateChange}
+        //     placeholder="Select Date of Birth"
+        //   />
+        // ),
       ],
     },
     {
       stepTitle: "Location Information",
       stepNumber: "2",
-      fields: [ 
+      fields: [
         {
           label: "Address Line 1",
           type: "text",
@@ -221,12 +216,12 @@ export function generateAdminFormStepsConfig(initialData) {
           required: true,
           defaultValue: initialData?.zipcode,
         },
-      ]
+      ],
     },
     {
       stepTitle: "Role Information",
       stepNumber: "3",
-      fields: [ 
+      fields: [
         {
           label: "Country code",
           type: "number",
@@ -242,16 +237,13 @@ export function generateAdminFormStepsConfig(initialData) {
           defaultValue: initialData?.adminRoleName,
         },
         {
-          // <input 
-          type:"file",
-          onChange:{handleImageChange}, 
-          accept:"image/*" 
+          // <input
+          type: "file",
+          onChange: { handleImageChange },
+          accept: "image/*",
           // />
         },
-      ]
+      ],
     },
   ];
 }
-
-
-
