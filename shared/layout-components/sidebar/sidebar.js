@@ -31,7 +31,7 @@ const Sidebar = () => {
   useEffect(() => {
     if (session) {
       const filteredMenuItems = MENUITEMS;
-      setMenuitems(filteredMenuItems);
+      setMenuitems(MENUITEMS);
     }
   }, [session]);
 
@@ -131,7 +131,7 @@ const Sidebar = () => {
   //   }
   // }, [permissions, session]);
 
-  console.log("🚀 ~ Sidebar ~ menuItems:", menuitems);
+  console.log("🚀 ~ Sidebar ~ menuItems:", menuitems, MENUITEMS);
 
   //<-------End---->
   function setSidemenu() {

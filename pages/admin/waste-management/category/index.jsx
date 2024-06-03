@@ -27,10 +27,13 @@ const tableData = [
 ];
 
 const tableColumns = [
-  { field: "wasteManagementCategoryName", label: "Waste Management Category Name" },
+  {
+    field: "wasteManagementCategoryName",
+    label: "Waste Management Category Name",
+  },
 ];
 
-const wasteManagementCategory = () => {
+const WasteManagementCategory = () => {
   const navigate = useRouter();
 
   const [initialData, setInitialData] = useState({});
@@ -94,6 +97,6 @@ const wasteManagementCategory = () => {
   );
 };
 
-wasteManagementCategory.layout = "Contentlayout";
+WasteManagementCategory.layout = "Contentlayout";
 
-export default wasteManagementCategory;
+export default WasteManagementCategory;

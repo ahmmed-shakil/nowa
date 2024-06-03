@@ -46,7 +46,7 @@ const tableColumns = [
   { field: "wastedItemQuantity", label: "Quantity" },
 ];
 
-const wasteManagementItem = () => {
+const WasteManagementItem = () => {
   const navigate = useRouter();
 
   const [initialData, setInitialData] = useState({});
@@ -110,6 +110,6 @@ const wasteManagementItem = () => {
   );
 };
 
-wasteManagementItem.layout = "Contentlayout";
+WasteManagementItem.layout = "Contentlayout";
 
-export default wasteManagementItem;
+export default WasteManagementItem;

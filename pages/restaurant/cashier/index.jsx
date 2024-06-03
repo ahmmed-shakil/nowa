@@ -1,5 +1,5 @@
 import BreadcrumbCustom from "@/components/BreadcrumbCustom/Breadcrumb";
-import Dashboard_card from "@/components/Dashboard_card";
+import Dashboard_card from "@/components/Dashboard_Card";
 import ModalComponent from "@/components/Modal/ModalComponent";
 import Seo from "@/components/Seo";
 import { tostError } from "@/components/SolidAlerts";

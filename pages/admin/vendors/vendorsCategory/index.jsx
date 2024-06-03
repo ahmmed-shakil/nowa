@@ -25,7 +25,7 @@ const tableColumns = [
   { field: "enabled", label: "Enabled" },
 ];
 
-const vendorCategory = () => {
+const VendorCategory = () => {
   //  Session
   const { data: session, status } = useSession();
 
@@ -148,6 +148,6 @@ const vendorCategory = () => {
   );
 };
 
-vendorCategory.layout = "Contentlayout";
+VendorCategory.layout = "Contentlayout";
 
-export default vendorCategory;
+export default VendorCategory;

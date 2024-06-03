@@ -36,13 +36,19 @@ const tableData = [
 ];
 
 const tableColumns = [
-  { field: "restaurantExpenseCategoryName", label: "Restaurant Expense Category Name" },
+  {
+    field: "restaurantExpenseCategoryName",
+    label: "Restaurant Expense Category Name",
+  },
   { field: "restaurantName", label: "Restaurant Name" },
   { field: "restaurantExpenseAmount", label: "Restaurant Expense Amount" },
-  { field: "restaurantExpensePaymentMode", label: "Restaurant Expense Payment Mode" },
+  {
+    field: "restaurantExpensePaymentMode",
+    label: "Restaurant Expense Payment Mode",
+  },
 ];
 
-const restaurantExpenses = () => {
+const RestaurantExpenses = () => {
   const navigate = useRouter();
 
   const [initialData, setInitialData] = useState({});
@@ -106,6 +112,6 @@ const restaurantExpenses = () => {
   );
 };
 
-restaurantExpenses.layout = "Contentlayout";
+RestaurantExpenses.layout = "Contentlayout";
 
-export default restaurantExpenses;
+export default RestaurantExpenses;

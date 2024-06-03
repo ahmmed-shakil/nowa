@@ -15,34 +15,37 @@ const tableData = [
   {
     id: 1,
     restaurantRecquisitionName: "Recquisition A",
-    quantityIssued:50,
-    remarks:"Overpriced",
-    restaurant_issuesName:"Issue A",
+    quantityIssued: 50,
+    remarks: "Overpriced",
+    restaurant_issuesName: "Issue A",
   },
   {
     id: 1,
     restaurantRecquisitionName: "Recquisition C",
-    quantityIssued:70,
-    remarks:"Great Quality",
-    restaurant_issuesName:"Issue B",
+    quantityIssued: 70,
+    remarks: "Great Quality",
+    restaurant_issuesName: "Issue B",
   },
   {
     id: 1,
     restaurantRecquisitionName: "Recquisition B",
-    quantityIssued:45,
-    remarks:"Overpriced",
-    restaurant_issuesName:"Issue C",
+    quantityIssued: 45,
+    remarks: "Overpriced",
+    restaurant_issuesName: "Issue C",
   },
 ];
 
 const tableColumns = [
-  { field: "restaurantRecquisitionName", label: "Restaurant Recquisition Name"},
-  { field: "quantityIssued", label: "Quantity"},
-  { field: "remarks", label: "Remarks"},
-  { field: "restaurant_issuesName", label: "Issue_Name"},
+  {
+    field: "restaurantRecquisitionName",
+    label: "Restaurant Recquisition Name",
+  },
+  { field: "quantityIssued", label: "Quantity" },
+  { field: "remarks", label: "Remarks" },
+  { field: "restaurant_issuesName", label: "Issue_Name" },
 ];
 
-const restaurantIssueItem = () => {
+const RestaurantIssueItem = () => {
   const navigate = useRouter();
 
   const [initialData, setInitialData] = useState({});
@@ -106,6 +109,6 @@ const restaurantIssueItem = () => {
   );
 };
 
-restaurantIssueItem.layout = "Contentlayout";
+RestaurantIssueItem.layout = "Contentlayout";
 
-export default restaurantIssueItem;
+export default RestaurantIssueItem;

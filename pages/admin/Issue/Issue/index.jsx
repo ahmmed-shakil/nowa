@@ -27,10 +27,13 @@ const tableData = [
 ];
 
 const tableColumns = [
-  { field: "restaurantRecquisitionName", label: "Restaurant Recquisition Name" },
+  {
+    field: "restaurantRecquisitionName",
+    label: "Restaurant Recquisition Name",
+  },
 ];
 
-const restaurantIssue = () => {
+const RestaurantIssue = () => {
   const navigate = useRouter();
 
   const [initialData, setInitialData] = useState({});
@@ -94,6 +97,6 @@ const restaurantIssue = () => {
   );
 };
 
-restaurantIssue.layout = "Contentlayout";
+RestaurantIssue.layout = "Contentlayout";
 
-export default restaurantIssue;
+export default RestaurantIssue;

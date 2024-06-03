@@ -54,7 +54,7 @@ const tableColumns = [
   { field: "updatedAt", label: "Purchase Date" },
 ];
 
-const storePurchase = () => {
+const StorePurchase = () => {
   const navigate = useRouter();
 
   const [initialData, setInitialData] = useState({});
@@ -118,6 +118,6 @@ const storePurchase = () => {
   );
 };
 
-storePurchase.layout = "Contentlayout";
+StorePurchase.layout = "Contentlayout";
 
-export default storePurchase;
+export default StorePurchase;
