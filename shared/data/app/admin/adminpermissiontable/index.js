@@ -1,0 +1,302 @@
+import React, { useState, Fragment } from "react";
+import { Button, Form, Modal, Table } from "react-bootstrap";
+import { nanoid } from "nanoid";
+
+export const AdminPermissionTable = () => {
+  const [modalShow, setModalShow] = React.useState(false);
+  const data = [
+    {
+      id: "1",
+      name: "Restaurant SKU Management",
+      slug: "restaurant_sku_management",
+    },
+    {
+      id: "2",
+      name: "Store SKU Management",
+      slug: "store_sku_management",
+    },
+    {
+      id: "3",
+      name: "Restaurant Expenses",
+      slug: "restaurant_expenses",
+    },
+  ];
+  const [contacts, setContacts] = useState(data);
+  const [addFormData, setAddFormData] = useState({
+    sno: "",
+    Name: "",
+    name: "",
+    slug: "",
+  });
+
+  const [editFormData, setEditFormData] = useState({
+    sno: "",
+    Name: "",
+    name: "",
+    slug: "",
+  });
+
+  const [editContactId, setEditContactId] = useState(null);
+
+  const handleAddFormChange = (event) => {
+    event.preventDefault();
+
+    const fieldName = event.target.getAttribute("name");
+    const fieldValue = event.target.value;
+
+    const newFormData = { ...addFormData };
+    newFormData[fieldName] = fieldValue;
+
+    setAddFormData(newFormData);
+  };
+
+  const handleEditFormChange = (event) => {
+    event.preventDefault();
+
+    const fieldName = event.target.getAttribute("name");
+    const fieldValue = event.target.value;
+
+    const newFormData = { ...editFormData };
+    newFormData[fieldName] = fieldValue;
+
+    setEditFormData(newFormData);
+  };
+
+  const handleAddFormSubmit = (event) => {
+    event.preventDefault();
+
+    const newContact = {
+      name: addFormData.name,
+      slug: addFormData.slug,
+    };
+
+    const newContacts = [...contacts, newContact];
+    setContacts(newContacts);
+  };
+
+  const handleEditFormSubmit = (event) => {
+    event.preventDefault();
+
+    const editedContact = {
+      name: editFormData.name,
+      slug: editFormData.slug,
+    };
+
+    const newContacts = [...contacts];
+
+    const index = contacts.findIndex((contact) => contact.id === editContactId);
+
+    newContacts[index] = editedContact;
+
+    setContacts(newContacts);
+    setEditContactId(null);
+  };
+
+  const handleEditClick = (event, contact) => {
+    event.preventDefault();
+    setEditContactId(contact.id);
+
+    const formValues = {
+      name: contact.name,
+      slug: contact.slug,
+    };
+
+    setEditFormData(formValues);
+  };
+
+  const handleCancelClick = () => {
+    setEditContactId(null);
+  };
+
+  const handleDeleteClick = (contactId) => {
+    const newContacts = [...contacts];
+
+    const index = contacts.findIndex((contact) => contact.id === contactId);
+
+    newContacts.splice(index, 1);
+
+    setContacts(newContacts);
+  };
+
+  return (
+    <div className="app-container">
+      <Form onSubmit={handleEditFormSubmit}>
+        <div className=" d-flex justify-content-end">
+          <Button
+            variant=""
+            className="btn btn-primary mb-3"
+            onClick={() => setModalShow(true)}
+          >
+            Add New Permission
+          </Button>
+        </div>
+        <Table
+          id="delete-datatable"
+          className="table table-bordered text-nowrap border-bottom"
+        >
+          <thead>
+            <tr>
+              <th className="wd-5p text-center">S NO</th>
+              <th>Access Permission Name</th>
+              <th>Slug</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contacts.map((contact, i) => (
+              <Fragment key={contact.id}>
+                {editContactId === contact.id ? (
+                  <EditableRow
+                    editFormData={{ ...editFormData, sno: i + 1 }}
+                    handleEditFormChange={handleEditFormChange}
+                    handleCancelClick={handleCancelClick}
+                  />
+                ) : (
+                  <ReadOnlyRow
+                    contact={{ ...contact, sno: i + 1 }}
+                    handleEditClick={handleEditClick}
+                    handleDeleteClick={handleDeleteClick}
+                  />
+                )}
+              </Fragment>
+            ))}
+          </tbody>
+        </Table>
+      </Form>
+
+      {/* <h2>Add a Contact</h2> */}
+      <Modal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Add New Row
+          </Modal.Title>
+          <Button
+            variant=""
+            className="btn btn-close"
+            onClick={() => setModalShow(false)}
+          >
+            x
+          </Button>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleAddFormSubmit} className="">
+            <Form.Control
+              type="text"
+              name="name"
+              required
+              placeholder="Enter a name..."
+              onChange={handleAddFormChange}
+              className="form-control mb-2 border"
+            />
+
+            <Form.Control
+              type="text"
+              name="slug"
+              required
+              placeholder="Enter a slug..."
+              onChange={handleAddFormChange}
+              className="form-control mb-2"
+            />
+            <Button
+              variant=""
+              className="btn btn-primary me-2 wd-100p "
+              type="submit"
+            >
+              Add
+            </Button>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            className="btn btn-primary wd-20p"
+            onClick={() => setModalShow(false)}
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+};
+const EditableRow = ({
+  editFormData,
+  handleEditFormChange,
+  handleCancelClick,
+}) => {
+  return (
+    <tr>
+      <td>
+        <Form.Control
+          type="text"
+          required
+          placeholder="S NO"
+          name="Sno"
+          value={editFormData.sno}
+          className="border"
+          disabled
+        ></Form.Control>
+      </td>
+      <td>
+        <Form.Control
+          type="text"
+          required
+          placeholder="Enter a name..."
+          name="Name"
+          value={editFormData.name}
+          onChange={handleEditFormChange}
+          className="border"
+        ></Form.Control>
+      </td>
+      <td>
+        <Form.Control
+          type="text"
+          required
+          placeholder="Enter a slug..."
+          name="slug"
+          value={editFormData.slug}
+          // onChange={handleEditFormChange}
+          disabled
+          className="border"
+        ></Form.Control>
+      </td>
+      <td>
+        <Button variant="" className="btn btn-primary me-1" type="submit">
+          Save
+        </Button>
+        <Button
+          variant=""
+          className="btn btn-danger me-1"
+          type="button "
+          onClick={handleCancelClick}
+        >
+          Cancel
+        </Button>
+      </td>
+    </tr>
+  );
+};
+const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
+  return (
+    <tr>
+      <td className="wd-5p text-center">{contact.sno}</td>
+      <td>{contact.name}</td>
+      <td>{contact.slug}</td>
+      <td>
+        <Button
+          variant=""
+          className="btn btn-primary me-1"
+          type="button"
+          onClick={(event) => handleEditClick(event, contact)}
+        >
+          Edit
+        </Button>
+      </td>
+    </tr>
+  );
+};
