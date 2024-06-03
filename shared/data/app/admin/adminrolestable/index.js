@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import { Button, Form, Modal, Table } from "react-bootstrap";
 import { nanoid } from "nanoid";
 import { Prefilledinputs } from "../../../form/advanced-forms";
-import { AdminPermissionsMultiSelect } from "../forms/admin-permissions-select";
+import AdminPermissionsMultiSelect from "../forms/admin-permissions-select";
 
 export const AdminRolesTable = () => {
   const [modalShow, setModalShow] = React.useState(false);
