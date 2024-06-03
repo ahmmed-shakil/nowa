@@ -9,7 +9,7 @@ import { Card_F_Width } from "@/components/Cards";
 import {
   generateWasteManagementCategoryFormStepsConfig,
   getInitialValues,
-} from "./formConfigs";
+} from "../../../../formConfigs/waste-management/category/formConfigs";
 
 const tableData = [
   {

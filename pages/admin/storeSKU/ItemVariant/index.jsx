@@ -9,7 +9,7 @@ import { Card_F_Width } from "@/components/Cards";
 import {
   generateSKUItemVariantFormStepsConfig,
   getInitialValues,
-} from "./formConfigs";
+} from "../../../../formConfigs/storeSKU/ItemVariant/formConfigs";
 
 const tableData = [
   {
@@ -40,7 +40,7 @@ const tableData = [
     SKUItemVariantRate: 450,
     approvalStatus: false,
     approvedBy: "userB",
-    enabled: false,  
+    enabled: false,
   },
 ];
 

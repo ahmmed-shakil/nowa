@@ -9,7 +9,7 @@ import { Card_F_Width } from "@/components/Cards";
 import {
   generateGasReadingFormStepsConfig,
   getInitialValues,
-} from "./formConfigs";
+} from "../../../../formConfigs/Gas/gasReading/formConfigs";
 
 const tableData = [
   {

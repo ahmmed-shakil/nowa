@@ -9,7 +9,7 @@ import { Card_F_Width } from "@/components/Cards";
 import {
   generateStorePurchaseFormStepsConfig,
   getInitialValues,
-} from "./formConfigs";
+} from "../../../../formConfigs/Purchase/storeItemVariantPurchase/formConfigs";
 
 const tableData = [
   {

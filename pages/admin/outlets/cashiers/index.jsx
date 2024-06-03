@@ -9,7 +9,7 @@ import { Card_F_Width } from "@/components/Cards";
 import {
   generateCashierFormStepsConfig,
   getInitialValues,
-} from "./formConfigs";
+} from "../../../../formConfigs/outlets/cashiers/formConfigs";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "@/shared/redux/actions/authAction";
 

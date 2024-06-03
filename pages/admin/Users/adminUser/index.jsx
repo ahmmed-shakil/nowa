@@ -6,7 +6,10 @@ import { useRouter } from "next/router";
 import BreadcrumbCustom from "@/components/BreadcrumbCustom/Breadcrumb";
 import DataTablesWithModalEdit from "@/components/Tables/DataTablesWithModalEdit";
 import { Card_F_Width } from "@/components/Cards";
-import { generateAdminFormStepsConfig, getInitialValues } from "./formConfigs";
+import {
+  generateAdminFormStepsConfig,
+  getInitialValues,
+} from "../../../../formConfigs/Users/adminUser/formConfigs";
 
 const tableData = [
   {
@@ -130,7 +133,7 @@ const AdminUser = () => {
         {/* <!-- row --> */}
         <Row className=" row-sm">
           <Col lg={12}>
-            <Card_F_Width title={"Admins List"}>  
+            <Card_F_Width title={"Admins List"}>
               <div className="table-responsive  deleted-table">
                 <DataTablesWithModalEdit
                   data={tableData}

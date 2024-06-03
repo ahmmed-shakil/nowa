@@ -9,7 +9,7 @@ import { Card_F_Width } from "@/components/Cards";
 import {
   generateVendorCategoryFormStepsConfig,
   getInitialValues,
-} from "./formConfigs";
+} from "../../../../formConfigs/vendors/vendorsCategory/formConfigs";
 import { useDispatch, useSelector } from "react-redux";
 import {
   createVendorCategory,

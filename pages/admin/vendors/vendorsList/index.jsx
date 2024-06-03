@@ -6,7 +6,10 @@ import { useRouter } from "next/router";
 import BreadcrumbCustom from "@/components/BreadcrumbCustom/Breadcrumb";
 import DataTablesWithModalEdit from "@/components/Tables/DataTablesWithModalEdit";
 import { Card_F_Width } from "@/components/Cards";
-import { generateVendorFormStepsConfig, getInitialValues } from "./formConfigs";
+import {
+  generateVendorFormStepsConfig,
+  getInitialValues,
+} from "../../../../formConfigs/vendors/vendorsList/formConfigs";
 
 const tableData = [
   {
@@ -78,7 +81,7 @@ const Vendors = () => {
         {/* <!-- row --> */}
         <Row className=" row-sm">
           <Col lg={12}>
-            <Card_F_Width title={"Vendor List"}>  
+            <Card_F_Width title={"Vendor List"}>
               <div className="table-responsive  deleted-table">
                 <DataTablesWithModalEdit
                   data={tableData}

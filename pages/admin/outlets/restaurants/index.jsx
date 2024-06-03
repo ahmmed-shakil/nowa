@@ -10,7 +10,7 @@ import {
   generateFormStepsConfig,
   generateRestaurantFormStepsConfig,
   getInitialValues,
-} from "./formConfigs";
+} from "../../../../formConfigs/outlets/restaurants/formConfigs";
 
 const tableData = [
   {

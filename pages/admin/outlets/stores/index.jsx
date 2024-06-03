@@ -6,7 +6,10 @@ import { useRouter } from "next/router";
 import BreadcrumbCustom from "@/components/BreadcrumbCustom/Breadcrumb";
 import DataTablesWithModalEdit from "@/components/Tables/DataTablesWithModalEdit";
 import { Card_F_Width } from "@/components/Cards";
-import { generateStoreFormStepsConfig, getInitialValues } from "./formConfigs";
+import {
+  generateStoreFormStepsConfig,
+  getInitialValues,
+} from "../../../../formConfigs/outlets/stores/formConfigs";
 
 const tableData = [
   {
