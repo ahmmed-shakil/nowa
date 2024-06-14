@@ -105,6 +105,8 @@ export default function Home() {
     setLoading(true);
 
     routeChange();
+    const path = key === "admin" ? `/admin` : `/restaurant`;
+    navigate.push(path);
 
     // try {
     //   const res = await signIn("credentials", {
