@@ -21,9 +21,9 @@ import { Flip, toast } from "react-toastify";
 // import { C } from "@fullcalendar/core/internal-common";
 
 export default function Home() {
-  const { data: session, status } = useSession();
+  // const { data: session, status } = useSession();
   const [loading, setLoading] = useState(false);
-  console.log(session);
+  // console.log(session);
   // useEffect(() => {
   //   if (session) routeChange(session.type);
   // }, [session]);
@@ -97,10 +97,12 @@ export default function Home() {
     }
   };
 
+  const [key, setKey] = useState("restaurant");
+
   const submitForm = async (event) => {
     event.preventDefault();
-    const credentials = { email, password };
-    console.log(email, password);
+    // const credentials = { email, password };
+    console.log("Type", type);
     if (!isValid || !password.length > 0) return;
     setLoading(true);
 
@@ -162,8 +164,6 @@ export default function Home() {
     //   console.log(error, "error");
     // }
   };
-
-  const [key, setKey] = useState("restaurant");
 
   return (
     <>
