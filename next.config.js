@@ -7,7 +7,7 @@ const nextConfig = {
   swcMinify: true,
   // basePath: isProd ? '/nowa/preview' : undefined,
   basePath: isProd ? "" : undefined,
-  assetPrefix: isProd ? "https://pog-client-sigma.vercel.app/" : undefined,
+  assetPrefix: isProd ? "https://nowa-delta.vercel.app/" : undefined,
   images: {
     loader: "imgix",
     path: "/",
