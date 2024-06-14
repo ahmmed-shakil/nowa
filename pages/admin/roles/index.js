@@ -4,7 +4,15 @@ import Seo from "@/shared/layout-components/seo/seo";
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
-import { Breadcrumb, Col, Row, Card, Button, ProgressBar, Form } from "react-bootstrap";
+import {
+  Breadcrumb,
+  Col,
+  Row,
+  Card,
+  Button,
+  ProgressBar,
+  Form,
+} from "react-bootstrap";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -17,11 +25,11 @@ const AdminRoles = () => {
 
   const { status } = useSession();
 
-  useEffect(() => {
-    if (status && status === "unauthenticated") {
-      navigate.push("/");
-    }
-  }, [status]);
+  // useEffect(() => {
+  //   if (status && status === "unauthenticated") {
+  //     navigate.push("/");
+  //   }
+  // }, [status]);
 
   return (
     <>

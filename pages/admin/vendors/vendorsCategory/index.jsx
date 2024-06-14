@@ -29,11 +29,11 @@ const VendorCategory = () => {
   //  Session
   const { data: session, status } = useSession();
 
-  useEffect(() => {
-    if (status && status === "unauthenticated") {
-      navigate.push("/");
-    }
-  }, [status]);
+  // useEffect(() => {
+  //   if (status && status === "unauthenticated") {
+  //     navigate.push("/");
+  //   }
+  // }, [status]);
 
   // Hooks
   const navigate = useRouter();

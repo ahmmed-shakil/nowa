@@ -53,11 +53,11 @@ const Vendors = () => {
 
   const { status } = useSession();
 
-  useEffect(() => {
-    if (status && status === "unauthenticated") {
-      navigate.push("/");
-    }
-  }, [status]);
+  // useEffect(() => {
+  //   if (status && status === "unauthenticated") {
+  //     navigate.push("/");
+  //   }
+  // }, [status]);
 
   const [form, setForm] = useState([]);
 

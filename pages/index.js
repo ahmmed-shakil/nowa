@@ -104,7 +104,7 @@ export default function Home() {
     if (!isValid || !password.length > 0) return;
     setLoading(true);
 
-    navigate.push("/admin");
+    routeChange();
 
     // try {
     //   const res = await signIn("credentials", {
