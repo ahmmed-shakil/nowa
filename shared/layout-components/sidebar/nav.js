@@ -2011,7 +2011,7 @@ export const MENUITEMS = [
     userType: "all",
     Items: [
       {
-        path: `/`,
+        path: `/components/dashboards/dashboard1`,
         accessPermission: "all",
         icon: (
           <svg

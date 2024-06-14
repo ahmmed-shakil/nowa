@@ -29,11 +29,9 @@ const Sidebar = () => {
   StoreSideBar;
   ADMINMENUITEMS;
   useEffect(() => {
-    if (session) {
-      const filteredMenuItems = MENUITEMS;
-      setMenuitems(MENUITEMS);
-    }
-  }, [session]);
+    const filteredMenuItems = MENUITEMS;
+    setMenuitems(MENUITEMS);
+  }, []);
 
   // initial loading
   useEffect(() => {

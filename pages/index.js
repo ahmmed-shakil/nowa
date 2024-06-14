@@ -47,8 +47,8 @@ export default function Home() {
   });
   let navigate = useRouter();
   const routeChange = () => {
-    let path = session.type === "admin" ? `/admin` : `/restaurant`;
-    navigate.push(path);
+    // let path = session.type === "admin" ? `/admin` : `/restaurant`;
+    // navigate.push(path);
   };
 
   const [email, setEmail] = useState("");
@@ -102,7 +102,7 @@ export default function Home() {
   const submitForm = async (event) => {
     event.preventDefault();
     // const credentials = { email, password };
-    console.log("Type", type);
+    console.log("Type", key);
     if (!isValid || !password.length > 0) return;
     setLoading(true);
 
