@@ -2,7 +2,7 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import TreeView from "@mui/lab/TreeView";
-import TreeItem, { TreeItemProps } from "@mui/lab/TreeItem";
+import TreeItem from "@mui/lab/TreeItem";
 import Typography from "@mui/material/Typography";
 import MailIcon from "@mui/icons-material/Mail";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -24,33 +24,33 @@ import { SvgIconProps } from "@mui/material/SvgIcon";
 
 const StyledTreeItemRoot = styled(TreeItem)(({ theme }) => ({
   color: theme.palette.text.secondary,
-  [`& .${treeItemClasses.content}`]: {
-    color: theme.palette.text.secondary,
-    borderTopRightRadius: theme.spacing(2),
-    borderBottomRightRadius: theme.spacing(2),
-    paddingRight: theme.spacing(1),
-    fontWeight: theme.typography.fontWeightMedium,
-    "&.Mui-expanded": {
-      fontWeight: theme.typography.fontWeightRegular,
-    },
-    "&:hover": {
-      backgroundColor: theme.palette.action.hover,
-    },
-    "&.Mui-focused, &.Mui-selected, &.Mui-selected.Mui-focused": {
-      backgroundColor: `var(--tree-view-bg-color, ${theme.palette.action.selected})`,
-      color: "var(--tree-view-color)",
-    },
-    [`& .${treeItemClasses.label}`]: {
-      fontWeight: "inherit",
-      color: "inherit",
-    },
-  },
-  [`& .${treeItemClasses.group}`]: {
-    marginLeft: 0,
-    [`& .${treeItemClasses.content}`]: {
-      paddingLeft: theme.spacing(2),
-    },
-  },
+  // [`& .${treeItemClasses.content}`]: {
+  //   color: theme.palette.text.secondary,
+  //   borderTopRightRadius: theme.spacing(2),
+  //   borderBottomRightRadius: theme.spacing(2),
+  //   paddingRight: theme.spacing(1),
+  //   fontWeight: theme.typography.fontWeightMedium,
+  //   "&.Mui-expanded": {
+  //     fontWeight: theme.typography.fontWeightRegular,
+  //   },
+  //   "&:hover": {
+  //     backgroundColor: theme.palette.action.hover,
+  //   },
+  //   "&.Mui-focused, &.Mui-selected, &.Mui-selected.Mui-focused": {
+  //     backgroundColor: `var(--tree-view-bg-color, ${theme.palette.action.selected})`,
+  //     color: "var(--tree-view-color)",
+  //   },
+  //   [`& .${treeItemClasses.label}`]: {
+  //     fontWeight: "inherit",
+  //     color: "inherit",
+  //   },
+  // },
+  // [`& .${treeItemClasses.group}`]: {
+  //   marginLeft: 0,
+  //   [`& .${treeItemClasses.content}`]: {
+  //     paddingLeft: theme.spacing(2),
+  //   },
+  // },
 }));
 
 function StyledTreeItem(props) {
