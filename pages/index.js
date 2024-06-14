@@ -21,7 +21,7 @@ import { Flip, toast } from "react-toastify";
 // import { C } from "@fullcalendar/core/internal-common";
 
 export default function Home() {
-  // const { data: session, status } = useSession();
+  const { data: session, status } = useSession();
   const [loading, setLoading] = useState(false);
   // console.log(session);
   // useEffect(() => {
